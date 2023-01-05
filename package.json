@@ -24,7 +24,7 @@
     "pino"
   ],
   "author": "Haci Murat Yaman",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/xplora-uk/logger/issues"
   },
