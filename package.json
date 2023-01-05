@@ -1,5 +1,5 @@
 {
-  "name": "logger",
+  "name": "@xplora-uk/logger",
   "version": "1.0.0",
   "description": "shared logger library based on pino",
   "main": "lib/index.js",

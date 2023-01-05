@@ -32,7 +32,7 @@ describe('console logger at info level', () => {
   const commonLog = { app_name: 'app', app_version: '1.0.0', env: 'dev' };
   const logger = newLogger({ kind: 'console', commonLog });
 
-  it('should debug', () => {
+  it('should NOT debug', () => {
     logger.debug('debug here - NOT TO BE PRINTED');
     expect(1).to.eq(1); // TODO: how do we check?
   });
