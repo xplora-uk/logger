@@ -1,20 +1,20 @@
 import pino from 'pino';
-import { ILogger, ILoggerMessageArg, ILoggerSettings, ILogLevelType } from '../types';
+import { ILogger, ILoggerMessageArg, ILoggerSettingsRequired, ILogLevel } from '../../types';
 import { makeLogForPino } from '../utils';
 
-export function newPinoLogger(_settings: ILoggerSettings): ILogger {
+export function newPinoLogger(_settings: ILoggerSettingsRequired): ILogger {
 
   const _logger = pino({
     level: _settings.level || 'info',
-  }).child(_settings.commonLog);
+  }).child(_settings.app);
 
   function debug(arg: ILoggerMessageArg) {
     if (!isLevelEnabled('debug')) return;
     if (typeof arg === 'string') {
       _logger.debug(arg);
     } else {
-      const { message, ...rest } = makeLogForPino(arg);
-      _logger.debug(rest, message);
+      const { msg, ...rest } = makeLogForPino(arg);
+      _logger.debug(rest, msg);
     }
   }
 
@@ -23,8 +23,8 @@ export function newPinoLogger(_settings: ILoggerSettings): ILogger {
     if (typeof arg === 'string') {
       _logger.info(arg);
     } else {
-      const { message, ...rest } = makeLogForPino(arg);
-      _logger.info(rest, message);
+      const { msg, ...rest } = makeLogForPino(arg);
+      _logger.info(rest, msg);
     }
   }
 
@@ -33,22 +33,22 @@ export function newPinoLogger(_settings: ILoggerSettings): ILogger {
     if (typeof arg === 'string') {
       _logger.warn(arg);
     } else {
-      const { message, ...rest } = makeLogForPino(arg);
-      _logger.warn(rest, message);
+      const { msg, ...rest } = makeLogForPino(arg);
+      _logger.warn(rest, msg);
     }
   }
 
   function error(arg: ILoggerMessageArg) {
-    if (!isLevelEnabled('error')) return;
+    //if (!isLevelEnabled('error')) return; // highest level already
     if (typeof arg === 'string') {
       _logger.error(arg);
     } else {
-      const { message, ...rest } = makeLogForPino(arg);
-      _logger.error(rest, message);
+      const { msg, ...rest } = makeLogForPino(arg);
+      _logger.error(rest, msg);
     }
   }
 
-  function isLevelEnabled(level: ILogLevelType): boolean {
+  function isLevelEnabled(level: ILogLevel): boolean {
     return _logger.isLevelEnabled(level);
   }
 

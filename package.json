@@ -1,6 +1,6 @@
 {
   "name": "@xplora-uk/logger",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "shared logger library based on pino",
   "main": "lib/index.js",
   "type": "commonjs",
