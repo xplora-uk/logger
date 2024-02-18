@@ -8,7 +8,7 @@ Check code inside `src`.
 
 ### requirements for dev
 
-* Node v16+
+* Node v18+
 
 ### install, build, test
 
@@ -45,7 +45,7 @@ All files         |   93.26 |    73.33 |     100 |   97.59 |
 
 ### requirements for usage
 
-* Node v14+
+* Node v18+
 
 ### installation
 

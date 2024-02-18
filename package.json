@@ -1,6 +1,6 @@
 {
   "name": "@xplora-uk/logger",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "shared logger library based on pino",
   "main": "lib/index.js",
   "type": "commonjs",
@@ -41,5 +41,8 @@
     "rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
+  },
+  "engines": {
+    "node": ">=18.16.0"
   }
 }
